@@ -1,0 +1,89 @@
+login.py
+#login.py is below and i was using some code from that too edit the one below it but there is a looping error in the second one and not the first based off of the same code
+import time
+
+VALID_USERNAME = ("testin")
+VALID_PASSWORD = ("testin")
+
+def login():
+    attempts = 0
+    lockout_time = 10 #10 seconds for testing
+
+    while True:
+        if attempts >= 5:
+            print("Too many failed attempts. Locked out:")
+            for remaining in range(lockout_time, 0, -1):
+                print(f"  Try again in {remaining} seconds", end="\r")
+                time.sleep(1)
+            print("You can try again now.")
+            attempts = 0
+            #Total_Attempts == 1
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+
+        if username == VALID_USERNAME and password == VALID_PASSWORD:
+            print(" Login successful!")
+            return True
+        else:
+            attempts += 1
+            print(f" Wrong credentials. {5 - attempts} guesses left.")
+
+login()
+#notes in block below
+[
+"""
+This is just notes, I dont really understand the
+ for remaining in range(lockout_time, 0, -1):
+                print(f"  Try again in {remaining} seconds", end="\r")
+                time.sleep(1)
+well I understand the logic I just would never use it as i dont know it to that degree
+I will add a Total attempts counter and make it so the time for lockout_time increases until eventually being a permanent lockout.
+dont remember how to do that rn tho
+"""
+]
+
+
+
+
+
+
+
+import time
+
+def create_account():
+    print("Create Account ")
+    username = input("Choose a username: ")
+    password = input("Choose a password: ")
+    print("Account created!")
+    return username, password
+
+def login(valid_username, valid_password):
+    attempts = 0
+    lockout_time = 60 #seconds
+
+    while True:
+        if attempts >= 5:
+            print("Too many failed attempts. Locked out:")
+            for remaining in range(lockout_time, 0, -1):
+                print(f"  Try again in {remaining} seconds", end="\r")
+                time.sleep(1)
+                print("You can try again now.")
+                attempts = 0
+
+
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+
+        if username == valid_username and password == valid_password:
+            print("Login successful!")
+            return True
+        else:
+            attempts += 1
+            print(f"Wrong credentials. {5 - attempts} guesses left.")
+
+def main():
+    user, pw = create_account()
+    login(user, pw)
+
+if __name__ == "__main__":
+    main()
