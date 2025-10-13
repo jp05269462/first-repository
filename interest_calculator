@@ -1,0 +1,28 @@
+def simple_interest():
+    principal_amount = float(input("How much was originally put in?: "))
+    rate = float(input("what is the anual rate?: "))
+    time = float(input("How long in years will it be kept?: "))
+
+    interest = (principal_amount * rate * time) / 100
+    print(f"In {time} years, you have made {interest}")
+    return interest
+
+def compound_interest():
+    principal_amount = float(input("How much was originally put in?: "))
+    rate = float(input("what is the anual rate?: "))
+    time = float(input("How long in years will it be kept?: "))
+    n_compounding = int(input("How many times does it compound in a year?"))
+    
+    amount = principal_amount * (1 + rate / 100 / n_compounding) ** (n_compounding * time)
+    compound_interest = amount - principal_amount
+    print(f"in {time} years, you have made {compound_interest}" )
+    return compound_interest
+
+choice = input("Would you like to calculate simple or compound interest? (simple/compound): ")
+
+if choice == "simple":
+    simple_interest()
+elif choice == "compound":
+    compound_interest()
+else:
+    print("Invalid choice. try 'simple' or 'compound'. ")
