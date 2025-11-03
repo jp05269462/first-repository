@@ -1,0 +1,25 @@
+def linear_search(items, inp):
+    found = False
+    for x in range(len(items)):
+        if items[x] == inp:
+            print (f"item {inp} is found at {x}")
+            found = True
+            break
+    if found:
+            print(f"{inp} is in the list")
+    else:
+            print("data item not found.")
+
+items = [5,10,15,20,25,30,35,40,45,50]
+inp = 20
+linear_search (items, inp)
+
+'''
+import random
+nlist ={random.randrange (1,100) for x in range (200)}
+'''loop prints 1 to 99, due to the range being so much higher its in order, if range decreases it wont be in order e.g.
+nlist = {random.randrange (1,100) for x in range (200)}   due to the numbers only having the chance to repeat twice its likely not in order
+'''
+print (nlist)
+
+'''
