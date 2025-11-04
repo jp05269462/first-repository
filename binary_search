@@ -1,0 +1,24 @@
+def binary_search(sequence, item):
+    start_index = 0
+    end_index = len(sequence) -1 # index position starts at 0
+
+    while start_index <= end_index:
+        midpoint = start_index + (end_index - start_index) // 2
+        midpoint_val = sequence [midpoint]
+        if midpoint_val == item:
+            return midpoint
+            
+        elif item < midpoint_val:
+            end_index = midpoint -1
+            
+        else:
+            start_index = midpoint + 1
+        
+    return ("not in list")
+    
+sequence_1 = [1,3,5,7,8,9,10,14,15,16]
+item_1 = 10
+print(binary_search(sequence_1, item_1))
+#might seem off but again python starts counting at 0 so position 7 is 0,1,2,3,4,5,6
+
+#usefull for ordered lists
